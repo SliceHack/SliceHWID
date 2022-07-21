@@ -20,6 +20,7 @@ public class ServerUtil {
             String json = "{\"hwid\":\"" + hwid + "\",\"discordid\":\"" + discordid + "\",\"invitekey\":\"" + invitekey + "\"}";
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
+            connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36");
             connection.setRequestProperty("Content-Type", "application/json");
             connection.setRequestProperty("Content-Length", Integer.toString(json.getBytes().length));
             connection.setRequestProperty("Content-Language", "en-US");

@@ -1,5 +1,9 @@
 package com.sliceclient.hwid.ui;
 
+import com.sliceclient.hwid.SliceHWID;
+import com.sliceclient.hwid.util.api.ServerUtil;
+import com.sliceclient.hwid.util.hardware.HardwareUtil;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,9 +12,10 @@ public class TextField extends JTextField {
     public TextField(int x, int y, int width, int height) {
         setBounds(x, y, width, height);
         addActionListener(e -> {
-            if(getText().isEmpty())
+            if(getText().replace(" ", "").isEmpty())
                 return;
-            setText("");
+
+            ServerUtil.sendRequest(HardwareUtil.getHardwareID(), Long.parseLong(SliceHWID.INSTANCE.discordDiscriminator), getText());
         });
     }
 

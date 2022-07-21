@@ -20,7 +20,7 @@ public class StartDiscordRPC {
             SliceHWID.INSTANCE.discordName = user.username;
             SliceHWID.INSTANCE.discordID = user.userId;
             SliceHWID.INSTANCE.discordDiscriminator = user.discriminator;
-            SliceHWID.INSTANCE.runWindow();
+            SliceHWID.INSTANCE.runWindow(SliceHWID.INSTANCE.getDiscord());
         }).build();
 
         DiscordRPC.discordInitialize("984300399534170113", handlers, true);
